@@ -1,5 +1,6 @@
-package com.spacocursos.api.domain.model;
+package com.certificados.api.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.CreationTimestamp;
@@ -19,6 +20,7 @@ public class Contrato {
     @EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
     @NotBlank
@@ -39,7 +41,8 @@ public class Contrato {
     @JoinColumn(name = "aluno_id", nullable = false)
     private Aluno aluno;
 
-    @NotNull
+    @JsonIgnore
     @OneToMany(mappedBy = "contrato")
-    private List<Curso> curso = new ArrayList<>();
+    private List<Certificado> certificado = new ArrayList<>();
+
 }

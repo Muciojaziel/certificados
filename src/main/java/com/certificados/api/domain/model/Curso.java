@@ -1,5 +1,6 @@
-package com.spacocursos.api.domain.model;
+package com.certificados.api.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -12,7 +13,7 @@ import java.util.List;
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-public class Cursostatus {
+public class Curso {
 
     @EqualsAndHashCode.Include
     @Id
@@ -21,19 +22,17 @@ public class Cursostatus {
 
     @NotNull
     @NotBlank
-    private String status;
+    private String nome;
 
-    private String conceito;
+    @NotNull
+    @NotBlank
+    private String cargahoraria;
 
-    private String nota;
-
-    @ManyToOne()
+    @ManyToOne
     @JoinColumn(name = "aluno_id", nullable = false)
     private Aluno aluno;
 
-    @ManyToOne
-    @JoinColumn(name = "curso_id", nullable = false)
-    private Curso curso;
-
-
+    @JsonIgnore
+    @OneToMany(mappedBy = "curso")
+    private List<Cursostatus> cursostatus = new ArrayList<>();
 }

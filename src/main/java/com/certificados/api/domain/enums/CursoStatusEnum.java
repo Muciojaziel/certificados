@@ -1,4 +1,4 @@
-package com.spacocursos.api.domain.enums;
+package com.certificados.api.domain.enums;
 
 public enum CursoStatusEnum {
     CONCLUIDO(1, "Concluído"),

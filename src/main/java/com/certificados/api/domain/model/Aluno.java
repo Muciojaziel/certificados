@@ -1,4 +1,4 @@
-package com.spacocursos.api.domain.model;
+package com.certificados.api.domain.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
@@ -28,7 +28,6 @@ public class Aluno {
 
     private String abreviacao;
 
-    @NotBlank
     @NotNull
     private Long cpf;
 
@@ -42,11 +41,7 @@ public class Aluno {
     private List<Contrato> contrato = new ArrayList<>();
 
     @JsonIgnore
+    @NotNull
     @OneToMany(mappedBy = "aluno")
-    private List<Certificado> certificado = new ArrayList<>();
-
-    @JsonIgnore
-    @OneToMany(mappedBy = "aluno")
-    private List<Cursostatus> cursostatus = new ArrayList<>();
-
+    private List<Curso> curso = new ArrayList<>();
 }

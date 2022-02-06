@@ -1,6 +1,6 @@
-package com.spacocursos.api.domain.repository;
+package com.certificados.api.domain.repository;
 
-import com.spacocursos.api.domain.model.Aluno;
+import com.certificados.api.domain.model.Aluno;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

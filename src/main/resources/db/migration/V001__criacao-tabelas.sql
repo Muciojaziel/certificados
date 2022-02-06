@@ -10,18 +10,7 @@ CREATE table aluno (
 
 ) engine=InnoDB default charset=utf8;
 
-CREATE table certificado (
-                       id bigint not null auto_increment,
-                       modelo int(2) not null,
-                       dataemissao datetime not null,
-                       codigovalidacao varchar (200) not null,
-                       aluno_id bigint not null,
 
-                       primary key (id),
-
-                       constraint fk_certificado_aluno foreign key(aluno_id) references aluno (id)
-
-) engine=InnoDB default charset=utf8;
 
 CREATE table curso (
                        id bigint not null auto_increment,
@@ -46,6 +35,19 @@ CREATE table contrato (
                           constraint fk_contrato_aluno foreign key(aluno_id) references aluno (id)
 
 ) engine=innoDB default charset=utf8;
+
+CREATE table certificado (
+                             id bigint not null auto_increment,
+                             modelo int(2) not null,
+                             dataemissao datetime not null,
+                             codigovalidacao varchar (200) not null,
+                             aluno_id bigint not null,
+
+                             primary key (id),
+
+                             constraint fk_certificado_aluno foreign key(aluno_id) references aluno (id)
+
+) engine=InnoDB default charset=utf8;
 
 CREATE table cursostatus (
                              id bigint not null auto_increment,

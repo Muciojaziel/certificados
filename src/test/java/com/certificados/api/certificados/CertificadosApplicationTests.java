@@ -1,4 +1,4 @@
-package com.spacocursos.api.certificados;
+package com.certificados.api.certificados;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

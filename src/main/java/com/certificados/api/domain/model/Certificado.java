@@ -1,10 +1,10 @@
-package com.spacocursos.api.domain.model;
+package com.certificados.api.domain.model;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
@@ -16,19 +16,20 @@ public class Certificado {
     @EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
     private Integer modelo;
 
-    @NotBlank
+    @NotNull
+    @CreationTimestamp
     @Column(nullable = false, columnDefinition = "datetime")
     private LocalDateTime dataemissao;
 
-    @NotBlank
     @NotNull
     private String codigovalidacao;
 
     @ManyToOne()
-    @JoinColumn(name = "aluno_id", nullable = false)
-    private Aluno aluno;
+    @JoinColumn(name = "contrato_id", nullable = false)
+    private Contrato contrato;
 }
